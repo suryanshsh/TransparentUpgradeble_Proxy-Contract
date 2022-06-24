@@ -6,17 +6,10 @@ pragma solidity ^0.8.0;
 import "./TransparentUpgradeableProxy.sol";
 import "@openzeppeline/contracts/access/Ownable.sol";
 
-/**
- * @dev This is an auxiliary contract meant to be assigned as the admin of a {TransparentUpgradeableProxy}. For an
- * explanation of why you would want to use this see the documentation for {TransparentUpgradeableProxy}.
- */
+
 contract ProxyAdmin is Ownable {
     /**
      * @dev Returns the current implementation of `proxy`.
-     *
-     * Requirements:
-     *
-     * - This contract must be the admin of `proxy`.
      */
     function getProxyImplementation(TransparentUpgradeableProxy proxy)
         public
@@ -35,10 +28,6 @@ contract ProxyAdmin is Ownable {
 
     /**
      * @dev Returns the current admin of `proxy`.
-     *
-     * Requirements:
-     *
-     * - This contract must be the admin of `proxy`.
      */
     function getProxyAdmin(TransparentUpgradeableProxy proxy)
         public
@@ -57,10 +46,6 @@ contract ProxyAdmin is Ownable {
 
     /**
      * @dev Changes the admin of `proxy` to `newAdmin`.
-     *
-     * Requirements:
-     *
-     * - This contract must be the current admin of `proxy`.
      */
     function changeProxyAdmin(
         TransparentUpgradeableProxy proxy,
@@ -71,10 +56,6 @@ contract ProxyAdmin is Ownable {
 
     /**
      * @dev Upgrades `proxy` to `implementation`. See {TransparentUpgradeableProxy-upgradeTo}.
-     *
-     * Requirements:
-     *
-     * - This contract must be the admin of `proxy`.
      */
     function upgrade(TransparentUpgradeableProxy proxy, address implementation)
         public
@@ -87,10 +68,6 @@ contract ProxyAdmin is Ownable {
     /**
      * @dev Upgrades `proxy` to `implementation` and calls a function on the new implementation. See
      * {TransparentUpgradeableProxy-upgradeToAndCall}.
-     *
-     * Requirements:
-     *
-     * - This contract must be the admin of `proxy`.
      */
     function upgradeAndCall(
         TransparentUpgradeableProxy proxy,
